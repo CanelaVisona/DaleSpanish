@@ -7,6 +7,7 @@
     max-width: 100%;
     max-height: 100%;
     margin-top: 5%;
+    margin-bottom: 5%;
   }
   .grid-container .imagen {
     grid-column: 1/3;
@@ -28,15 +29,14 @@
     grid-template-rows: auto auto;
   }
   .grid-container .item-titulo-dos {
-    grid-column: 1/-1;
+    grid-column: 2;
+    grid-row: 1;
     text-align: center;
   }
   .grid-container .btn {
-    grid-row: 2;
     grid-column: 2;
     justify-self: center;
-    width: 100%;
-    height: 3rem;
+    align-self: center;
   }
   .item-carrusel {
     grid-column: -4/-1;
@@ -44,6 +44,7 @@
     width: 70%;
     justify-self: center;
     margin-top: 10%;
+    margin-top: 5%;
   }
 }
 @media only screen and (min-width: 700px) and (max-width: 1300px) {
@@ -75,21 +76,24 @@
     grid-template-rows: auto auto;
   }
   .grid-container .item-titulo-dos {
-    grid-column: 1/-1;
+    grid-column: 2;
+    grid-row: 1;
     text-align: center;
   }
   .grid-container .btn {
-    grid-row: 2;
+    grid-row: 1;
     grid-column: 2;
     justify-self: center;
     width: 100%;
-    height: 3rem;
+    height: 30%;
+    align-self: center;
   }
   .item-carrusel {
     grid-column: -4/-1;
     grid-row: 3/4;
     width: 70%;
     justify-self: center;
+    margin-top: 5%;
   }
 }
 @media only screen and (min-width: 1100px) and (max-width: 1300px) {
@@ -100,6 +104,7 @@
     max-width: 100%;
     max-height: 100%;
     margin-top: 5%;
+    margin-bottom: 5%;
   }
   .grid-container .imagen {
     grid-column: 1/2;
@@ -121,21 +126,24 @@
     grid-template-rows: auto auto;
   }
   .grid-container .item-titulo-dos {
-    grid-column: 1/-1;
+    grid-column: 2;
+    grid-row: 1;
     text-align: center;
   }
   .grid-container .btn {
-    grid-row: 2;
+    grid-row: 1;
     grid-column: 2;
     justify-self: center;
     width: 100%;
-    height: 30%;
+    height: 24%;
+    align-self: center;
   }
   .item-carrusel {
     grid-column: -4/-1;
     grid-row: 3/4;
     width: 70%;
     justify-self: center;
+    margin-top: 5%;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -146,7 +154,7 @@
     gap: 20px;
     justify-content: center;
     align-items: center;
-    margin-top: 15%;
+    margin-top: 7%;
     margin-bottom: 2%;
   }
   .grid-container-2 .grid-item-cuatro {
@@ -183,10 +191,8 @@
   .grid-container-2 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
     justify-content: center;
     align-items: center;
-    margin-top: 15%;
     margin-bottom: 2%;
   }
   .grid-container-2 .grid-item-cuatro,
@@ -201,7 +207,7 @@
     margin: 0;
   }
   .footer-foto {
-    width: 30%;
+    width: 50%;
     height: -20%;
     grid-column: 2/3;
     justify-self: center;
@@ -295,6 +301,11 @@ h1 {
   font-family: "genty";
 }
 
+.titulo {
+  text-align: left;
+  font-size: 2rem;
+}
+
 #spanish {
   font-family: "lora";
 }
@@ -357,6 +368,272 @@ footer {
 }
 .mb-3 {
   width: 50%;
+}
+
+.contenedor-netflix {
+  width: 90%;
+  margin: auto;
+}
+
+.peliculas-recomendadas {
+  margin-bottom: 70px;
+}
+
+.peliculas-recomendadas .contenedor-principal {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.peliculas-recomendadas .contenedor-principal .flecha-izquierda,
+.peliculas-recomendadas .contenedor-principal .flecha-derecha {
+  position: absolute;
+  border: none;
+  background: rgba(0, 0, 0, 0.1);
+  font-size: 40px;
+  height: 50%;
+  top: 25%;
+  line-height: 40px;
+  width: 50px;
+  color: white;
+  cursor: pointer;
+  z-index: 500;
+  transition: 0.2s ease all;
+}
+
+.peliculas-recomendadas .contenedor-principal .flecha-izquierda-2,
+.peliculas-recomendadas .contenedor-principal .flecha-derecha-2 {
+  position: absolute;
+  border: none;
+  background: rgba(0, 0, 0, 0.1);
+  font-size: 40px;
+  height: 50%;
+  top: 25%;
+  line-height: 40px;
+  width: 50px;
+  color: white;
+  cursor: pointer;
+  z-index: 500;
+  transition: 0.2s ease all;
+}
+
+.peliculas-recomendadas .contenedor-principal .flecha-izquierda-3,
+.peliculas-recomendadas .contenedor-principal .flecha-derecha-3 {
+  position: absolute;
+  border: none;
+  background: rgba(0, 0, 0, 0.1);
+  font-size: 40px;
+  height: 50%;
+  top: 25%;
+  line-height: 40px;
+  width: 50px;
+  color: white;
+  cursor: pointer;
+  z-index: 500;
+  transition: 0.2s ease all;
+}
+
+.peliculas-recomendadas .contenedor-principal .flecha-izquierda {
+  left: 0;
+}
+
+.peliculas-recomendadas .contenedor-principal .flecha-derecha {
+  right: 0;
+}
+
+.peliculas-recomendadas .contenedor-principal .flecha-izquierda-2 {
+  left: 0;
+}
+
+.peliculas-recomendadas .contenedor-principal .flecha-derecha-2 {
+  right: 0;
+}
+
+.peliculas-recomendadas .contenedor-principal .flecha-izquierda-3 {
+  left: 0;
+}
+
+.peliculas-recomendadas .contenedor-principal .flecha-derecha-3 {
+  right: 0;
+}
+
+.contenedor-carrusel5 {
+  width: 100%;
+  padding: 20px 0;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  flex-wrap: nowrap;
+}
+
+.contenedor-carrusel5 .carrusel5 {
+  display: flex;
+}
+
+.contenedor-carrusel6 {
+  width: 100%;
+  padding: 20px 0;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  flex-wrap: nowrap;
+}
+
+.contenedor-carrusel6 .carrusel6 {
+  display: flex;
+}
+
+.contenedor-carrusel7 {
+  width: 100%;
+  padding: 20px 0;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  flex-wrap: nowrap;
+}
+
+.contenedor-carrusel7 .carrusel7 {
+  display: flex;
+}
+
+.ejercicios-foto {
+  min-width: 25%;
+  transition: 0.3s ease all;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.ejercicios-foto-2 {
+  min-width: 25%;
+  transition: 0.3s ease all;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.ejercicios-foto-3 {
+  min-width: 25%;
+  transition: 0.3s ease all;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.ejercicios-foto.hover {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+.ejercicios-foto img {
+  width: 100%;
+  vertical-align: top;
+}
+
+.ejercicios-foto-2.hover {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+.ejercicios-foto-2 img {
+  width: 100%;
+  vertical-align: top;
+}
+
+.ejercicios-foto-3.hover {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+.ejercicios-foto-3 img {
+  width: 100%;
+  vertical-align: top;
+}
+
+.peliculas-recomendadas .contenedor-principal .flecha-izquierda:hover,
+.peliculas-recomendadas .contenedor-principal .flecha-derecha:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.peliculas-recomendadas .contenedor-principal .flecha-izquierda-2:hover,
+.peliculas-recomendadas .contenedor-principal .flecha-derecha-2:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.peliculas-recomendadas .contenedor-principal .flecha-izquierda-3:hover,
+.peliculas-recomendadas .contenedor-principal .flecha-derecha-3:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.contenedor-titulo-controles {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.contenedor-titulo-controles h3 {
+  color: black;
+  font-size: 30px;
+}
+
+.contenedor-titulo-controles .indicadores button {
+  background: black;
+  height: 3px;
+  width: 10px;
+  cursor: pointer;
+  border: none;
+  margin-right: 2px;
+}
+
+.contenedor-titulo-controles .indicadores-2 button {
+  background: black;
+  height: 3px;
+  width: 10px;
+  cursor: pointer;
+  border: none;
+  margin-right: 2px;
+}
+
+.contenedor-titulo-controles .indicadores-3 button {
+  background: black;
+  height: 3px;
+  width: 10px;
+  cursor: pointer;
+  border: none;
+  margin-right: 2px;
+}
+
+.contenedor-titulo-controles .indicadores button:hover,
+.contenedor-titulo-controles .indicadores button.activo {
+  background: red;
+}
+
+.contenedor-titulo-controles .indicadores-2 button:hover,
+.contenedor-titulo-controles .indicadores-2 button.activo {
+  background: red;
+}
+
+.contenedor-titulo-controles .indicadores-3 button:hover,
+.contenedor-titulo-controles .indicadores-3 button.activo {
+  background: red;
+}
+
+@media only screen and (max-width: 800px) {
+  .peliculas-recomendadas .contenedor-principal .contenedor-carrusel5 {
+    overflow: visible;
+  }
+  .contenedor-carrusel5 .carrusel5 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .peliculas-recomendadas .contenedor-principal .contenedor-carrusel6 {
+    overflow: visible;
+  }
+  .contenedor-carrusel6 .carrusel6 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .peliculas-recomendadas .contenedor-principal .contenedor-carrusel7 {
+    overflow: visible;
+  }
+  .contenedor-carrusel7 .carrusel7 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
