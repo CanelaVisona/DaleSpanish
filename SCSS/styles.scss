@@ -66,7 +66,8 @@ footer {
 
 .contenedor-netflix
 {width: 90%;
-margin: auto;}
+margin: auto;
+margin-top: 5%;}
 
 .peliculas-recomendadas {
   margin-bottom: 70px;
@@ -297,7 +298,8 @@ margin-right: 2px;
   border: none;
   margin-right: 2px;
    }
-  
+
+ 
 
  .contenedor-titulo-controles .indicadores button:hover,
  .contenedor-titulo-controles .indicadores button.activo
@@ -311,8 +313,10 @@ margin-right: 2px;
 .contenedor-titulo-controles .indicadores-3 button.activo
 {background: red}
 
-
-
+.modal-content.bg-transparent {
+  background-color: rgba(235, 10, 10, 0.1); /* Ajusta el valor alpha según sea necesario para la opacidad deseada */
+  border: none; /* Opcional: elimina el borde si no lo deseas */
+}
 
 @media only screen and  (max-width: 800px) {
  .peliculas-recomendadas .contenedor-principal .contenedor-carrusel5
@@ -342,3 +346,4 @@ margin-right: 2px;
   gap: 20px;
 }
 }
+

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 @media only screen and (min-width: 350px) and (max-width: 700px) {
   .grid-container {
@@ -373,6 +374,7 @@ footer {
 .contenedor-netflix {
   width: 90%;
   margin: auto;
+  margin-top: 5%;
 }
 
 .peliculas-recomendadas {
@@ -607,6 +609,11 @@ footer {
 .contenedor-titulo-controles .indicadores-3 button:hover,
 .contenedor-titulo-controles .indicadores-3 button.activo {
   background: red;
+}
+
+.modal-content.bg-transparent {
+  background-color: rgba(235, 10, 10, 0.1); /* Ajusta el valor alpha según sea necesario para la opacidad deseada */
+  border: none; /* Opcional: elimina el borde si no lo deseas */
 }
 
 @media only screen and (max-width: 800px) {

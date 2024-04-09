@@ -172,3 +172,20 @@ ejercicios3.forEach((ejercicio3) => {
 fila.addEventListener('mouseleave', () => {
     ejercicios3.forEach(ejercicio3 => ejercicio3.classList.remove('hover'));
 });
+
+
+// Seleccionar el botón
+const botonRedireccion = document.querySelector('.btn[href="#redireccion"]');
+
+// Agregar un evento de clic al botón
+botonRedireccion.addEventListener('click', () => {
+    // Esperar un breve momento antes de aplicar el margen
+    setTimeout(() => {
+        // Seleccionar el título "Gramática" dentro del elemento #redireccion
+        const tituloGramatica = document.querySelector('#redireccion h3');
+        // Aplicar el margen superior al título "Gramática"
+        tituloGramatica.style.marginTop = '20px'; // Puedes ajustar el valor según tus necesidades
+    }, 500); // Tiempo de espera en milisegundos antes de aplicar el margen
+});
+
+

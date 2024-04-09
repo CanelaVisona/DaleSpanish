@@ -16,6 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap" rel="stylesheet">
   <script async src="./js/script.js"></script>
   <script src="https://kit.fontawesome.com/bf264538d2.js" crossorigin="anonymous"></script>
+  
 </head>
 
 
@@ -36,8 +37,6 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-link active" aria-current="page" href="index.HTML">Inicio</a>
-            <a class="nav-link" href="pages/cursos.html">Cursos</a>
-            <a class="nav-link" href="pages/Ejercicios.html">Ejercicios</a>
             <a class="nav-link" href="pages/Productos.html">Productos</a>
             <a class="nav-link" href="pages/Contactanos.html">Contactanos</a>
           </div>
@@ -51,7 +50,7 @@
     <h1 class="item-titulo">Dale</h1>
     <div data-aos="zoom-in" class="grid-item">
       <h3 id="spanish" class="item-titulo-dos">Spanish</h3>
-      <a class="btn btn-warning " href="./pages/Ejercicios.html" role="button">¡Empecemos!</a>
+      <a class="btn btn-warning " href="#redireccion" role="button">¡Empecemos!</a>
     </div>
     <img class="imagen" src="./img/portada-si.png" alt="">
     
@@ -60,19 +59,73 @@
   </section>
 
 
-  <div class="peliculas-recomendadas contenedor-netflix ">
-    <div class="contenedor-titulo-controles">
+  <!-- Modal -->
+  
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="background-color: rgba(96, 93, 93, 0.2); ">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+          <img src="../img/Pronombres personales-graficos.jpg" class="card-img-top" alt="Pronombres personales">
+            
+            <h5 style="color: white;" >Pronombres personales</h5>
+            <p style="color: white;">Abajo vas a encontrarte tres ejercicios para practicar los pronombres personales en
+              español. <br> ¡Vamos che!</p>
+
+
+
+
+
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-warning" href="./pages/Ejercicios.html">¡Dale vamos!</a>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+  <div id="redireccion" class="peliculas-recomendadas contenedor-netflix ">
+    <div  class="contenedor-titulo-controles">
       <h3>Gramática</h3>
       <div class="indicadores"></div>
     </div>
-        <div class="contenedor-principal">
+        <div  class="contenedor-principal">
           <button role="button" id="flecha-izquierda" class="flecha-izquierda"><i class="fa-solid fa-angle-left"></i></button>
   
           <div class="contenedor-carrusel5">
             <div class="carrusel5">
   
               <div class="ejercicios-foto">
-                <a href="#"><img  src="../img/adjetivos-posesivos-portada.png" alt=""></a>
+                
+                <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img src="./img/Pronombres personales-graficos.jpg" alt=""></a>
               </div>
   
               <div class="ejercicios-foto">
