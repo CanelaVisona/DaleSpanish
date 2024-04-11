@@ -1,0 +1,27 @@
+
+
+@media only screen and (min-width: 350px) and (max-width: 1300px) { 
+
+  .modal {
+    --bs-modal-padding: 0.7rem;
+    --bs-modal-footer-border-color: none;
+  }
+.card-img-top {   
+    width: 100%;
+    margin-bottom: 5%;
+  
+  }
+  
+  .modal-header {
+    border-bottom: none;
+   }
+   .modal-footer {
+    justify-content: space-around;
+   }
+  
+   .modal-body {
+   
+    padding: none;
+   }
+
+    }
