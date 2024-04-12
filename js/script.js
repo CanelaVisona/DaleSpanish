@@ -1,16 +1,19 @@
+document.addEventListener("DOMContentLoaded", function() {
+
 const fila = document.querySelector('.contenedor-carrusel5');
 const ejercicios = document.querySelectorAll('.ejercicios-foto');
 const FlechaIzquierda = document.getElementById('flecha-izquierda');
 const FlechaDerecha = document.getElementById('flecha-derecha');
 
-FlechaDerecha.addEventListener ('click', () => { 
-    fila.scrollLeft += fila.offsetWidth; 
-    const indicadorActivo = document.querySelector('.indicadores .activo');
+FlechaDerecha.addEventListener('click', () => {
+	fila.scrollLeft += fila.offsetWidth;
+
+	const indicadorActivo = document.querySelector('.indicadores .activo');
 	if(indicadorActivo.nextSibling){
 		indicadorActivo.nextSibling.classList.add('activo');
 		indicadorActivo.classList.remove('activo');
 	}
-}   );
+});
 
 
 FlechaIzquierda.addEventListener ('click', () => { 
@@ -188,4 +191,4 @@ botonRedireccion.addEventListener('click', () => {
     }, 500); // Tiempo de espera en milisegundos antes de aplicar el margen
 });
 
-
+ });
