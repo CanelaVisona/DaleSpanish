@@ -193,5 +193,60 @@ botonRedireccion.addEventListener('click', () => {
 
  });
 
+ const questions = [
+    {
+        question: "¿Cuál es un verbo infinitivo?",
+        options: ["Comar", "Comir", "Comer", "Como"],
+        correct: 2
+    },
+    {
+        question: "¿Cuál es un verbo infinitivo?",
+        options: ["Hablar", "Habler", "Hablir", "Hablo"],
+        correct: 0
+    },
+    {
+        question: "¿Cuál es un verbo infinitivo?",
+        options: ["Vivor", "Vivi", "Vivir", "Viver"],
+        correct: 2
+    },
+];
 
- 
+let currentQuestionIndex = 0;
+
+function loadQuestion() {
+    const currentQuestion = questions[currentQuestionIndex];
+    document.getElementById('question').innerText = currentQuestion.question;
+    const optionButtons = document.getElementsByClassName('option-btn');
+    for (let i = 0; i < optionButtons.length; i++) {
+        optionButtons[i].innerText = currentQuestion.options[i];
+    }
+}
+
+function checkAnswer(selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const resultContainer = document.getElementById('result');
+    if (selectedOption === currentQuestion.correct) {
+        resultContainer.innerText = "¡Correcto!";
+    } else {
+        resultContainer.innerText = "Incorrecto. La respuesta correcta es: " + currentQuestion.options[currentQuestion.correct];
+    }
+    setTimeout(() => {
+        resultContainer.innerText = "";
+        currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
+        loadQuestion();
+    }, 2000);
+}
+
+function setupEventListeners() {
+    const optionButtons = document.getElementsByClassName('option-btn');
+    for (let i = 0; i < optionButtons.length; i++) {
+        optionButtons[i].addEventListener('click', function() {
+            checkAnswer(i);
+        });
+    }
+}
+
+window.onload = function() {
+    loadQuestion();
+    setupEventListeners();
+};

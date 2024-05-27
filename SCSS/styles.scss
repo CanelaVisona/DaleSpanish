@@ -13,6 +13,33 @@
 
 $color-fondo: hsl(41, 69%, 82%);
 
+
+#game-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+}
+
+#question-container {
+  margin-bottom: 20px;
+}
+
+.option-btn {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#result-container {
+  margin-top: 20px;
+  font-size: 18px;
+}
   
 header {
   width: 100%;
