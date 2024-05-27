@@ -212,6 +212,46 @@ botonRedireccion.addEventListener('click', () => {
 ];
 
 let currentQuestionIndex = 0;
+let correctCount = 0;
+let incorrectCount = 0;
+
+
+function loadFromLocalStorage() {
+    const savedIndex = localStorage.getItem('currentQuestionIndex');
+    const savedCorrectCount = localStorage.getItem('correctCount');
+    const savedIncorrectCount = localStorage.getItem('incorrectCount');
+
+    if (savedIndex !== null) {
+        currentQuestionIndex = parseInt(savedIndex, 10);
+    }
+    if (savedCorrectCount !== null) {
+        correctCount = parseInt(savedCorrectCount, 10);
+    }
+    if (savedIncorrectCount !== null) {
+        incorrectCount = parseInt(savedIncorrectCount, 10);
+    }
+
+    updateScoreDisplay();
+}
+
+
+function saveToLocalStorage() {
+    localStorage.setItem('currentQuestionIndex', currentQuestionIndex);
+    localStorage.setItem('correctCount', correctCount);
+    localStorage.setItem('incorrectCount', incorrectCount);
+}
+
+
+function resetGame() {
+    currentQuestionIndex = 0;
+    correctCount = 0;
+    incorrectCount = 0;
+    localStorage.removeItem('currentQuestionIndex');
+    localStorage.removeItem('correctCount');
+    localStorage.removeItem('incorrectCount');
+    updateScoreDisplay();
+    loadQuestion();
+}
 
 function loadQuestion() {
     const currentQuestion = questions[currentQuestionIndex];
@@ -227,14 +267,25 @@ function checkAnswer(selectedOption) {
     const resultContainer = document.getElementById('result');
     if (selectedOption === currentQuestion.correct) {
         resultContainer.innerText = "¡Correcto!";
+        correctCount++;
     } else {
         resultContainer.innerText = "Incorrecto. La respuesta correcta es: " + currentQuestion.options[currentQuestion.correct];
+        incorrectCount++;
     }
+    updateScoreDisplay();
+    saveToLocalStorage();
+
     setTimeout(() => {
         resultContainer.innerText = "";
         currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
+        saveToLocalStorage();
         loadQuestion();
     }, 2000);
+}
+
+function updateScoreDisplay() {
+    document.getElementById('correct-count').innerText = correctCount;
+    document.getElementById('incorrect-count').innerText = incorrectCount;
 }
 
 function setupEventListeners() {
@@ -244,9 +295,13 @@ function setupEventListeners() {
             checkAnswer(i);
         });
     }
+
+    document.getElementById('save-button').addEventListener('click', saveToLocalStorage);
+    document.getElementById('reset-button').addEventListener('click', resetGame);
 }
 
 window.onload = function() {
+    loadFromLocalStorage();
     loadQuestion();
     setupEventListeners();
 };
