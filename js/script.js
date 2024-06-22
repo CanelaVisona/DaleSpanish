@@ -193,54 +193,78 @@ botonRedireccion.addEventListener('click', () => {
 
  });
 
- const questions = [
-    {
-        question: "¿Cuál es un verbo infinitivo?",
-        options: ["Comar", "Comir", "Comer", "Como"],
-        correct: 2
-    },
-    {
-        question: "¿Cuál es un verbo infinitivo?",
-        options: ["Hablar", "Habler", "Hablir", "Hablo"],
-        correct: 0
-    },
-    {
-        question: "¿Cuál es un verbo infinitivo?",
-        options: ["Vivor", "Vivi", "Vivir", "Viver"],
-        correct: 2
-    },
-];
+ 
 
+const gameContainer = document.getElementById('game-container');
+const questionContainer = document.getElementById('question-container');
+const optionsContainer = document.getElementById('options-container');
+const resultContainer = document.getElementById('result');
+const correctCountDisplay = document.getElementById('correct-count');
+const incorrectCountDisplay = document.getElementById('incorrect-count');
+const resetButton = document.getElementById('reset-button');
+
+let questions = [];
 let currentQuestionIndex = 0;
 let correctCount = 0;
 let incorrectCount = 0;
 
-
-function loadFromLocalStorage() {
-    const savedIndex = localStorage.getItem('currentQuestionIndex');
-    const savedCorrectCount = localStorage.getItem('correctCount');
-    const savedIncorrectCount = localStorage.getItem('incorrectCount');
-
-    if (savedIndex !== null) {
-        currentQuestionIndex = parseInt(savedIndex, 10);
+async function fetchQuestions() {
+    try {
+        const response = await fetch('preguntas.json');
+        questions = await response.json();
+        loadQuestion();
+    } catch (error) {
+        console.error('Error al cargar las preguntas:', error);
     }
-    if (savedCorrectCount !== null) {
-        correctCount = parseInt(savedCorrectCount, 10);
-    }
-    if (savedIncorrectCount !== null) {
-        incorrectCount = parseInt(savedIncorrectCount, 10);
+}
+
+function loadQuestion() {
+    const currentQuestion = questions[currentQuestionIndex];
+    questionContainer.textContent = currentQuestion.question;
+
+    optionsContainer.innerHTML = '';
+    currentQuestion.options.forEach((option, index) => {
+        const button = document.createElement('button');
+        button.textContent = option;
+        button.className = 'option-btn';
+        button.id = `option-${index}`;
+        button.addEventListener('click', () => checkAnswer(index));
+        optionsContainer.appendChild(button);
+    });
+}
+
+function checkAnswer(selectedIndex) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const resultMessage = (selectedIndex === currentQuestion.correctIndex) ? '¡Correcto!' : `Incorrecto. La respuesta correcta es: ${currentQuestion.options[currentQuestion.correctIndex]}`;
+    resultContainer.textContent = resultMessage;
+
+    if (selectedIndex === currentQuestion.correctIndex) {
+        correctCount++;
+    } else {
+        incorrectCount++;
     }
 
     updateScoreDisplay();
+    saveToLocalStorage();
+
+    setTimeout(() => {
+        resultContainer.textContent = '';
+        currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
+        saveToLocalStorage();
+        loadQuestion();
+    }, 2000);
 }
 
+function updateScoreDisplay() {
+    correctCountDisplay.textContent = correctCount;
+    incorrectCountDisplay.textContent = incorrectCount;
+}
 
 function saveToLocalStorage() {
     localStorage.setItem('currentQuestionIndex', currentQuestionIndex);
     localStorage.setItem('correctCount', correctCount);
     localStorage.setItem('incorrectCount', incorrectCount);
 }
-
 
 function resetGame() {
     currentQuestionIndex = 0;
@@ -250,58 +274,11 @@ function resetGame() {
     localStorage.removeItem('correctCount');
     localStorage.removeItem('incorrectCount');
     updateScoreDisplay();
-    loadQuestion();
+    fetchQuestions();
 }
 
-function loadQuestion() {
-    const currentQuestion = questions[currentQuestionIndex];
-    document.getElementById('question').innerText = currentQuestion.question;
-    const optionButtons = document.getElementsByClassName('option-btn');
-    for (let i = 0; i < optionButtons.length; i++) {
-        optionButtons[i].innerText = currentQuestion.options[i];
-    }
-}
+resetButton.addEventListener('click', resetGame);
 
-function checkAnswer(selectedOption) {
-    const currentQuestion = questions[currentQuestionIndex];
-    const resultContainer = document.getElementById('result');
-    if (selectedOption === currentQuestion.correct) {
-        resultContainer.innerText = "¡Correcto!";
-        correctCount++;
-    } else {
-        resultContainer.innerText = "Incorrecto. La respuesta correcta es: " + currentQuestion.options[currentQuestion.correct];
-        incorrectCount++;
-    }
-    updateScoreDisplay();
-    saveToLocalStorage();
-
-    setTimeout(() => {
-        resultContainer.innerText = "";
-        currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
-        saveToLocalStorage();
-        loadQuestion();
-    }, 2000);
-}
-
-function updateScoreDisplay() {
-    document.getElementById('correct-count').innerText = correctCount;
-    document.getElementById('incorrect-count').innerText = incorrectCount;
-}
-
-function setupEventListeners() {
-    const optionButtons = document.getElementsByClassName('option-btn');
-    for (let i = 0; i < optionButtons.length; i++) {
-        optionButtons[i].addEventListener('click', function() {
-            checkAnswer(i);
-        });
-    }
-
-    document.getElementById('save-button').addEventListener('click', saveToLocalStorage);
-    document.getElementById('reset-button').addEventListener('click', resetGame);
-}
-
-window.onload = function() {
-    loadFromLocalStorage();
-    loadQuestion();
-    setupEventListeners();
+window.onload = function () {
+    fetchQuestions();
 };
